@@ -2,7 +2,7 @@
 
 ## 2.6.0 (2016-xx-xx)
 
-Since a few weeks, we offer a _"Custom TGMPA Generator"_. From now on, that is the preferred way for downloading your copy of TGMPA for use in a theme or plugin.
+Since a mid-February, we offer a _"Custom TGMPA Generator"_. From now on, that is the preferred way for downloading your copy of TGMPA for use in a theme or plugin.
 If you download TGMPA using the _Custom TGMPA Generator_ and indicate that it is for a theme which will be published on wordpress.org, you will receive a copy which will pass the Theme Check review.
 
 You can find the _Custom TGMPA Generator_ on the [download] page of the website. For more information, read the [related blog post].
@@ -17,8 +17,8 @@ You can find the _Custom TGMPA Generator_ on the [download] page of the website.
 * Enhancement: The full admin notice is now only displayed to users who can install/update/activate plugins. A limited _"Contact the site admin."_ notice is shown to select users if it pertains to _required_ plugins. The selection of which users get to see this last message is based on the `publish_posts` (=Author) capability. This capability is however filterable using the new `tgmpa_show_admin_notice_capability` filter. Thanks [Stanislav Khromov], [Gary Jones], [Mickey Kay], [Ollie Treend] for suggesting. [#190], [#414], [#489], [#507]
 * Enhancement: The example file now shows examples of different ways for including TGMPA based on the context in which you are using it. Props [Emil Uzelac] for the suggestion. [#469], [#503]
 * Improved text strings and translator messages. Props [Rami]. [#516]
-* Various other minor improvements and keeping things in line with WP core. [#512], [#513], [#514]
-* Added load_textdomain calls [#521] and translations for Brazilian Portuguese, French, German and Russian [#450], [#465], [#524], [#528] with grateful thanks to [Elvis Henrique Pereira], [Hedi Chaibi], [Marciel Bartzik] and [Vladislav Burlak].
+* Various other minor improvements and keeping things in line with WP core. [#512], [#513], [#514], [#532] (thanks [Utkarsh Patel])
+* Added load_textdomain calls [#521] and translations for Brazilian Portuguese, French, German, Russian and Swedish [#450], [#465], [#524], [#528], [#543] with grateful thanks to [Elvis Henrique Pereira], [Hedi Chaibi], [Marciel Bartzik], [Vladislav Burlak] and [Lewis Porter].
 * Regenerated .pot file.
 
 
@@ -296,6 +296,7 @@ TGMPA will start providing localized text strings soon. If you already have tran
 [Stanislav Khromov]: https://github.com/khromov
 [Yakir Sitbon]: https://github.com/KingYes
 [krishna19]: https://github.com/krishna19
+[Lewis Porter]: https://github.com/lewisporter
 [Luis Martins]: https://github.com/lmartins
 [manake]: https://github.com/manake
 [Marciel Bartzik]: http://www.bartzik.net/
@@ -305,6 +306,7 @@ TGMPA will start providing localized text strings soon. If you already have tran
 [Ninos Ego]: https://github.com/Ninos
 [Ollie Treend]: https://github.com/ollietreend
 [Parhum Khoshbakht]: https://github.com/parhumm
+[Utkarsh Patel]: https://github.com/PatelUtkarsh
 [pavot]: https://github.com/pavot
 [Primoz Cigler]: https://github.com/primozcigler
 [Chris Howard]: https://github.com/qwertydude
@@ -324,7 +326,8 @@ TGMPA will start providing localized text strings soon. If you already have tran
 [Zauan/Hogash Studio]: http://pastebin.com/u/Zauan
 [Christian]: http://themeforest.net/user/artless
 
-
+[#543]: https://github.com/TGMPA/TGM-Plugin-Activation/pull/543
+[#532]: https://github.com/TGMPA/TGM-Plugin-Activation/pull/532
 [#528]: https://github.com/TGMPA/TGM-Plugin-Activation/pull/528
 [#524]: https://github.com/TGMPA/TGM-Plugin-Activation/pull/524
 [#521]: https://github.com/TGMPA/TGM-Plugin-Activation/pull/521

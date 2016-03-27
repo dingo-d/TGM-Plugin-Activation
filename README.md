@@ -8,7 +8,7 @@
 [Thomas Griffin](https://github.com/thomasgriffin) ([@jthomasgriffin](https://twitter.com/jthomasgriffin)), [Gary Jones](https://github.com/GaryJones) ([@GaryJ](https://twitter.com/GaryJ)), [Juliette Reinders Folmer](https://github.com/jrfnl) ([@jrf_nl](https://twitter.com/jrf_nl))  
 **Version:** 2.6.0 
 **Requires at least:** 3.7.0  
-**Tested up to:** 4.4.1
+**Tested up to:** 4.4.2
 
 ## Description
 
