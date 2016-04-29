@@ -1015,11 +1015,11 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 				$subdir_name = untrailingslashit( str_replace( trailingslashit( $remote_source ), '', $source ) );
 
 				if ( ! empty( $subdir_name ) && $subdir_name !== $desired_slug ) {
-					$from = untrailingslashit( $source );
-					$to   = trailingslashit( $remote_source ) . $desired_slug;
+					$from_path = untrailingslashit( $source );
+					$to_path   = trailingslashit( $remote_source ) . $desired_slug;
 
-					if ( true === $GLOBALS['wp_filesystem']->move( $from, $to ) ) {
-						return trailingslashit( $to );
+					if ( true === $GLOBALS['wp_filesystem']->move( $from_path, $to_path ) ) {
+						return trailingslashit( $to_path );
 					} else {
 						return new WP_Error( 'rename_failed', esc_html__( 'The remote plugin package does not contain a folder with the desired slug and renaming did not work.', 'tgmpa' ) . ' ' . esc_html__( 'Please contact the plugin provider and ask them to package their plugin according to the WordPress guidelines.', 'tgmpa' ), array( 'found' => $subdir_name, 'expected' => $desired_slug ) );
 					}
@@ -1452,13 +1452,13 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 			$key     = preg_replace( '`[^A-Za-z0-9_-]`', '', $key );
 
 			/**
-			* Filter a sanitized key string.
-			*
-			* @since 2.5.0
-			*
-			* @param string $key     Sanitized key.
-			* @param string $raw_key The key prior to sanitization.
-			*/
+			 * Filter a sanitized key string.
+			 *
+			 * @since 2.5.0
+			 *
+			 * @param string $key     Sanitized key.
+			 * @param string $raw_key The key prior to sanitization.
+			 */
 			return apply_filters( 'tgmpa_sanitize_key', $key, $raw_key );
 		}
 
@@ -1501,7 +1501,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 		 * @since 2.0.0
 		 *
 		 * @param array $install_actions Existing array of actions.
-		 * @return array Amended array of actions.
+		 * @return false|array Amended array of actions.
 		 */
 		public function actions( $install_actions ) {
 			// Remove action links on the TGMPA install page.
@@ -2069,7 +2069,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 		 *
 		 * @since 2.4.0
 		 *
-		 * @return object The TGM_Plugin_Activation object.
+		 * @return \TGM_Plugin_Activation The TGM_Plugin_Activation object.
 		 */
 		public static function get_instance() {
 			if ( ! isset( self::$instance ) && ! ( self::$instance instanceof self ) ) {
@@ -2275,7 +2275,7 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 				if ( ! empty( $upgrade_notice ) ) {
 					$table_data[ $i ]['upgrade_notice'] = $upgrade_notice;
 
-					add_action( "tgmpa_after_plugin_row_$slug", array( $this, 'wp_plugin_update_row' ), 10, 2 );
+					add_action( 'tgmpa_after_plugin_row_' . $slug, array( $this, 'wp_plugin_update_row' ), 10, 2 );
 				}
 
 				$table_data[ $i ] = apply_filters( 'tgmpa_table_data_item', $table_data[ $i ], $plugin );
@@ -2713,7 +2713,7 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 			}
 
 			$prefix = ( defined( 'WP_NETWORK_ADMIN' ) && WP_NETWORK_ADMIN ) ? 'network_admin_' : '';
-			return apply_filters( "tgmpa_{$prefix}plugin_action_links", array_filter( $action_links ), $item['slug'], $item, $this->view_context );
+			return apply_filters( 'tgmpa_' . $prefix . 'plugin_action_links', array_filter( $action_links ), $item['slug'], $item, $this->view_context );
 		}
 
 		/**
@@ -2734,7 +2734,7 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 			 *
 			 * @since 2.5.0
 			 */
-			do_action( "tgmpa_after_plugin_row_{$item['slug']}", $item['slug'], $item, $this->view_context );
+			do_action( 'tgmpa_after_plugin_row_' . $item['slug'], $item['slug'], $item, $this->view_context );
 		}
 
 		/**
